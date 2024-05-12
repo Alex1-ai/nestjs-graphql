@@ -1,0 +1,57 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type UserSetting {
+  userId: Int!
+  receiveNotifications: Boolean!
+  receiveEmails: Boolean!
+}
+
+type User {
+  id: Int!
+  username: String!
+  displayName: String
+  settings: UserSetting
+}
+
+type Module {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type Query {
+  getUsers: [User!]!
+  getUserById(id: Int!): User
+  module(id: Int!): Module!
+}
+
+type Mutation {
+  createUser(createUserData: CreateUserInput!): User!
+  createUserSettings(createUserSettingsData: createUserSettingsInput!): UserSetting!
+  createModule(createModuleInput: CreateModuleInput!): Module!
+  updateModule(updateModuleInput: UpdateModuleInput!): Module!
+  removeModule(id: Int!): Module!
+}
+
+input CreateUserInput {
+  username: String!
+  displayName: String
+}
+
+input createUserSettingsInput {
+  userId: Int!
+  receiveNotifications: Boolean = false
+  receiveEmails: Boolean = false
+}
+
+input CreateModuleInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateModuleInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
